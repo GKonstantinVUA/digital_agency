@@ -727,8 +727,8 @@ body {
 .brand__trump {
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover
+  -o-object-fit: contain;
+  object-fit: contain
 }
 .infographic__body {
   display: flex;
@@ -1358,7 +1358,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 1.9375rem;
-  margin-bottom: .5rem
+  margin-bottom: .125rem
 }
 .blogs__row-box {
   display: flex;
@@ -2446,6 +2446,9 @@ button.swiper-pagination-bullet {
 @media (max-width:58.18625em) {
   .blogs__body {
     width: 100%
+  }
+  .blogs__row-box {
+    flex: 1 0 calc((100% - 0rem * 0)/ 1)
   }
   .row-box__pic-inner {
     aspect-ratio: 202/182;
