@@ -1357,13 +1357,13 @@ body {
 .blogs__body {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.9375rem;
-  margin-bottom: .125rem
+  width: 100%;
+  gap: 1.875rem
 }
 .blogs__row-box {
+  flex-grow: 1;
   display: flex;
-  position: relative;
-  flex-grow: 1
+  position: relative
 }
 .blogs__row-box::before {
   content: "";
@@ -1395,12 +1395,13 @@ body {
 }
 .row-box__pic-inner {
   flex-grow: 1;
+  flex: 0 0 50%;
   display: block;
   overflow: hidden;
   z-index: 3;
   border-radius: .875rem;
-  background: var(--colorRate) 0 0/222px 212px no-repeat;
-  flex: 0 0 50%
+  max-width: 13.875rem;
+  aspect-ratio: 222/212
 }
 .row-box__thumbnail {
   width: 100%;
@@ -1414,9 +1415,7 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  row-gap: .9375rem;
-  align-items: flex-start;
-  justify-content: space-around
+  row-gap: .9375rem
 }
 .row-box__subcaption {
   color: var(--colorBgLinkBtn);
@@ -1427,12 +1426,11 @@ body {
 }
 .row-box__subtitle {
   font-weight: 700;
-  line-height: 1;
-  flex-grow: 1
+  line-height: 1
 }
 .row-box__desc-item {
   color: var(--fontDopSubFamily);
-  line-height: 1.5
+  line-height: 1
 }
 .faq--setup {
   background-color: var(--mainColor);
@@ -2284,14 +2282,15 @@ button.swiper-pagination-bullet {
 }
 @media (min-width:58.1875em) {
   .blogs__row-box {
-    flex: 0 0 calc((100% - 1.9375rem * 1)/ 2)
+    flex: 0 0 calc((100% - 1.875rem * 1)/ 2)
   }
-  .row-box__pic-inner {
-    aspect-ratio: 222/212;
-    max-width: 13.875rem
+  .row-box__text-area {
+    align-items: flex-start;
+    justify-content: space-around
   }
   .row-box__subtitle {
-    font-size: clamp(1.125rem,-.545rem + 2.87vw,1.5rem)
+    font-size: clamp(1.125rem,-.545rem + 2.87vw,1.5rem);
+    flex-grow: 1
   }
   .row-box__desc-item {
     font-size: clamp(.75rem,.193rem + .96vw,.875rem)
@@ -2307,6 +2306,7 @@ button.swiper-pagination-bullet {
     margin-top: 7.8125rem
   }
   .card__inner-pic {
+    aspect-ratio: 340/440;
     max-width: 21.25rem
   }
 }
@@ -2444,15 +2444,12 @@ button.swiper-pagination-bullet {
   }
 }
 @media (max-width:58.18625em) {
-  .blogs__body {
-    width: 100%
-  }
   .blogs__row-box {
-    flex: 1 0 calc((100% - 0rem * 0)/ 1)
+    flex: 0 0 calc((100% - 0rem * 0)/ 1)
   }
-  .row-box__pic-inner {
-    aspect-ratio: 202/182;
-    max-width: 12.625rem
+  .row-box__text-area {
+    text-align: center;
+    justify-content: space-around
   }
   .row-box__subtitle {
     font-size: clamp(1.125rem,.798rem + 1.64vw,1.75rem)
@@ -2626,6 +2623,7 @@ button.swiper-pagination-bullet {
     margin-top: 3.125rem
   }
   .card__inner-pic {
+    aspect-ratio: 380/480;
     max-width: 23.75rem;
     margin: 0 auto
   }
@@ -2642,12 +2640,6 @@ button.swiper-pagination-bullet {
   }
   .footer__text-content {
     width: 100%
-  }
-}
-@media (max-width:31.25em) {
-  .row-box__pic-inner {
-    aspect-ratio: 182/172;
-    max-width: 11.375rem
   }
 }
 @media (max-width:29.375em) {
@@ -2667,10 +2659,7 @@ button.swiper-pagination-bullet {
     row-gap: 1.25rem
   }
   .row-box__pic-inner {
-    margin-top: 20px
-  }
-  .row-box__text-area {
-    text-align: center
+    display: none
   }
   .row-box__subcaption {
     margin: 0 auto
